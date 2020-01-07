@@ -218,7 +218,9 @@ export default function PersistentDrawerLeft({
           ))} */}
         </List>
         <Divider />
+        <div className="map_legend">
         <MapLegend />
+        </div>
        
         
       </Drawer>

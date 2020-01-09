@@ -11,10 +11,18 @@
   padding: 20px;
   padding-left: 10px;
 
-  .map_legend {
-  
+  // .legend-container {
+   
+  //   display: flex;
+  //   align-items: flex-end;
+  //   margin-bottom: -30px;
+   
+  // }
+
+  .navlinks-legend {
     display: flex;
-    flex-direction: column-reverse;
+    justify-content: space-around;
+    max-height: 100%;
   }
 
   @media (max-device-width: $mq-mobile) {

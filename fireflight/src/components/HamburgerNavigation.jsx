@@ -157,72 +157,74 @@ export default function PersistentDrawerLeft({
           </IconButton>
         </div>
         <Divider />
-        <List component="nav">
-          <ListItem button key="Home" component={NavLink} exact to="/">
-            <ListItemText primary="Home" />
-          </ListItem>
-          {localStorage.getItem('token') == null && (
-            <>
-              <ListItem
-                button
-                className="menu-item inactive"
-                onClick={() => {
-                  toggleAuthForms(true)
-                  toggleRegisterStatus(true)
-                  toggleLoginStatus(false)
-                  ReactGA.modalview('/Register')
-                }}
-              >
-                <ListItemText primary="Signup" />
+        <div className="navlinks-legend">
+          <div className="nav-links">
+            <List component="nav">
+              <ListItem button key="Home" component={NavLink} exact to="/">
+                <ListItemText primary="Home" />
               </ListItem>
-              <ListItem
-                button
-                className="menu-item inactive"
-                onClick={() => {
-                  toggleAuthForms(true)
-                  toggleRegisterStatus(false)
-                  toggleLoginStatus(true)
-                  ReactGA.modalview('/Login')
-                }}
-              >
-                <ListItemText primary="Login" />
-              </ListItem>
-            </>
-          )}
-          {localStorage.getItem('token') != null && (
-            <>
-              <ListItem
-                button
-                key="Profile"
-                component={NavLink}
-                to="/dashboard"
-                activeClassName="current"
-              >
-                <ListItemText primary="Profile" />
-              </ListItem>
-              <ListItem
-                button
-                key="Logout"
-                component={NavLink}
-                to="/"
-                onClick={logout}
-              >
-                <ListItemText primary="Logout" />
-              </ListItem>
-            </>
-          )}
-          {/* {['Home', 'Signup', 'Login'].map((text, index) => (
+              {localStorage.getItem('token') == null && (
+                <>
+                  <ListItem
+                    button
+                    className="menu-item inactive"
+                    onClick={() => {
+                      toggleAuthForms(true)
+                      toggleRegisterStatus(true)
+                      toggleLoginStatus(false)
+                      ReactGA.modalview('/Register')
+                    }}
+                  >
+                    <ListItemText primary="Signup" />
+                  </ListItem>
+                  <ListItem
+                    button
+                    className="menu-item inactive"
+                    onClick={() => {
+                      toggleAuthForms(true)
+                      toggleRegisterStatus(false)
+                      toggleLoginStatus(true)
+                      ReactGA.modalview('/Login')
+                    }}
+                  >
+                    <ListItemText primary="Login" />
+                  </ListItem>
+                </>
+              )}
+              {localStorage.getItem('token') != null && (
+                <>
+                  <ListItem
+                    button
+                    key="Profile"
+                    component={NavLink}
+                    to="/dashboard"
+                    activeClassName="current"
+                  >
+                    <ListItemText primary="Profile" />
+                  </ListItem>
+                  <ListItem
+                    button
+                    key="Logout"
+                    component={NavLink}
+                    to="/"
+                    onClick={logout}
+                  >
+                    <ListItemText primary="Logout" />
+                  </ListItem>
+                </>
+              )}
+              {/* {['Home', 'Signup', 'Login'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemText primary={text} />
             </ListItem>
           ))} */}
-        </List>
-        <Divider />
-        <div className="map_legend">
-        <MapLegend />
+            </List>
+          </div>
+          <Divider />
+          <div className="map_legend">
+            <MapLegend />
+          </div>
         </div>
-       
-        
       </Drawer>
     </div>
   )
